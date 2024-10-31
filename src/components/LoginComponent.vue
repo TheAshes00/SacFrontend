@@ -121,7 +121,9 @@ export default {
         {{ studentStore.boolUserNotFound ? studentStore.strUserMessage : adminStore.strUserName}}
     </PopUpWarning>
     <div class="container-fluid">
-        <form class="form-attributes" v-on:submit.prevent="subLoginUser">
+      <LoaderComponent v-if="boolIsLoading">
+      </LoaderComponent>
+        <form class="form-attributes" v-on:submit.prevent="subLoginUser" v-else>
             <div class="form-top" v-if="!boolAdminCommand">
                 <label for="nmct" class="text-login-color text-login">
                     Identification number:
@@ -156,10 +158,8 @@ export default {
                 <input type="password" name="admin-password" id="admin-password" v-model="objAdmin.strPassword">
             </div>
             <div class="form-bottom">
-                <LoaderComponent v-if="boolIsLoading">
-                </LoaderComponent>
                 <button class="button login-button button-align shadow-box" type="button"
-                    v-on:click="subLoginUser" v-else>
+                    v-on:click="subLoginUser">
                     Login
                 </button>
             </div>
