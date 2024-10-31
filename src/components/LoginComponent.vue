@@ -155,13 +155,13 @@ export default {
                 <label for="admin-password" class="text-login-color text-login">Password</label>
                 <input type="password" name="admin-password" id="admin-password" v-model="objAdmin.strPassword">
             </div>
-            <LoaderComponent v-if="boolIsLoading">
-            </LoaderComponent>
-            <div class="form-bottom" v-else>
-                <button class="button login-button button-align shadow-box" type="button"
-                    v-on:click="subLoginUser">
-                    Login
-                </button>
+
+            <div class="form-bottom">
+              <LoaderComponent v-if="boolIsLoading"/>
+              <button class="button login-button button-align shadow-box" type="button"
+                  v-on:click="subLoginUser" v-else>
+                  Login
+              </button>
             </div>
         </form>
     </div>
