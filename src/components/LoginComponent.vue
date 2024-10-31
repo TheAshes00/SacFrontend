@@ -22,9 +22,6 @@ export default {
             }
         }
     },
-    async created(){
-      this.studentStore.getAllAcademicEntities();
-    },
     components: {
         PopUpWarning,
         LoaderComponent
